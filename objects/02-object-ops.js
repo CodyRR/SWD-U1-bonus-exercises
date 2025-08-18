@@ -86,7 +86,24 @@ for (let restaurant of restaurants) {
 	Create two objects representing different local attractions (zoo, gardens, museums, etc), each with the following properties: name, location, adultTicketPrice, childTicketPrice, and famousFeatures (array of three strings). Be creative! Place the objects in an array.
 */
 
+let zoo = {
+	name: "St. Louis Zoo",
+	location: "St. Louis",
+	adultTicketPrice: 45.00,
+	childTicketPrice: 45.00,
+	famousFeatures: ["Polar Bears", "Penguins", "Lions"]
+};
+
+let museum = {
+	name: "St. Louis Art Museum",
+	location: "St. Louis",
+	adultTicketPrice: 100.00,
+	childTicketPrice: 150.00,
+	famousFeatures: ["Mona Lisa", "Declaration of Independence", "George Washington's Teeth"]
+};
+
 // TODO: create objects and put them in an array
+let places = [zoo, museum];
 
 /*
 	Loop through the array, then within that for loop, use a for...in loop to grab values from each key and print them to the console. If you come across a key storing an array, print each element in the array instead of the array itself. Remember that you need a new index variable with each nested FOR loop (i, j are common).
@@ -94,6 +111,19 @@ for (let restaurant of restaurants) {
 	NOTE: This is a tough one to think through when you're new at this. If you get completely stuck, reference the solution that accompanies this starter code. But make an effort to figure it out yourself first!
 */
 
+for( let place of places) {
+
+	for (let current in place){
+
+		if(Array.isArray(place[current])){
+			for (let feature of place[current]){
+				console.log(feature);
+			}
+		} else {
+			console.log(place[current]);
+		}
+	}
+}
 // TODO: use nested loops to print values inside objects
 
 /*
@@ -107,3 +137,7 @@ for (let restaurant of restaurants) {
 
 // TODO: Print a template literal
 
+for( let place of places){
+	console.log(`A staple in the St. Louis community, the ${place.name} has an incredible number of features,
+		 including the ${place.famousFeatures[0]}, ${place.famousFeatures[1]}, and ${place.famousFeatures[2]}.`);
+}
